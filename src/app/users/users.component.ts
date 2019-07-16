@@ -20,9 +20,10 @@ import { USER_DATA } from '../model/mocks';
   styleUrls: []
 })
 
-export class UsersComponent implements OnInit,
-  OnChanges, DoCheck, AfterContentInit, AfterContentChecked,
-  AfterViewInit, AfterViewChecked, OnDestroy {
+export class UsersComponent implements OnInit
+// OnChanges, DoCheck, AfterContentInit, AfterContentChecked,
+// AfterViewInit, AfterViewChecked, OnDestroy
+{
 
   @Input() title: string;
   users: IUser[];
@@ -32,22 +33,18 @@ export class UsersComponent implements OnInit,
     Mr. ${user.firstName} is working with ${user.company}!!`);
   }
 
-  constructor() {
-    console.log('constructor');
-    // this.user = USER_DATA;
-  }
+  constructor() { }
   ngOnInit() {
-    console.log('ngOnInit');
     this.users = USER_DATA;
   }
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('ngOnChanges', changes);
-  }
-  ngDoCheck() { console.log('ngDoCheck'); }
-  ngAfterContentInit() { console.log('ngAfterContentInit'); }
-  ngAfterContentChecked() { console.log('ngAfterContentChecked'); }
-  ngAfterViewInit() { console.log('ngAfterViewInit'); }
-  ngAfterViewChecked() { console.log('ngAfterViewChecked'); }
-  ngOnDestroy() { console.log('ngOnDestroy'); }
+  // ngOnChanges(changes: SimpleChanges) {
+  //   console.log('ngOnChanges', changes);
+  // }
+  // ngDoCheck() { console.log('ngDoCheck'); }
+  // ngAfterContentInit() { console.log('ngAfterContentInit'); }
+  // ngAfterContentChecked() { console.log('ngAfterContentChecked'); }
+  // ngAfterViewInit() { console.log('ngAfterViewInit'); }
+  // ngAfterViewChecked() { console.log('ngAfterViewChecked'); }
+  // ngOnDestroy() { console.log('ngOnDestroy'); }
 
 }

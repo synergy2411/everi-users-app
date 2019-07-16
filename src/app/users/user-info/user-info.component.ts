@@ -8,11 +8,19 @@ import { IUser } from 'src/app/model/user.model';
 })
 export class UserInfoComponent implements OnInit {
 
+  // tslint:disable-next-line: no-input-rename
   @Input('user') user: IUser;
 
-  dynamicClass = { 'border': false, 'feature': true }
+  // tslint:disable-next-line: object-literal-key-quotes
+  dynamicClass = {
+    border: false,
+    feature: true
+  };
+  dynamicStyle = {
+    color : 'green'
+  };
 
-  onToggle(){
+  onToggle() {
     this.dynamicClass.border = !this.dynamicClass.border;
     this.dynamicClass.feature = !this.dynamicClass.feature;
   }

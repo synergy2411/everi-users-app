@@ -1,10 +1,10 @@
 <ng-content select="header"></ng-content>
 
-<h3>{{ user.firstName }} {{ user.lastName }}</h3>
+<h3 app-highlight [myColor] = "'blue'">{{ user.firstName }} {{ user.lastName }}</h3>
 
 <ng-content></ng-content>
 
-<p *ngIf="user.isWorking; else ElseTemplate">
+<p *ngIf="user.isWorking; else ElseTemplate" [ngStyle] = "dynamicStyle">
   Income : <span [innerHTML]="user.income"></span></p>
 
   <!-- Desugar Syntax -->
