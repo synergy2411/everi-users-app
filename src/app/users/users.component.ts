@@ -19,9 +19,9 @@ export class UsersComponent {
     votes : 120
   }
 
-  moreInfo(firstName : string, company: string){
+  moreInfo(user : any){
     alert(`Here is the info,
-    Mr. ${firstName} is working with ${company}!!`);
+    Mr. ${user.firstName} is working with ${user.company}!!`);
   }
 
 
