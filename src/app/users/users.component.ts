@@ -7,9 +7,12 @@ import {
   DoCheck,
   OnChanges,
   OnDestroy,
-  OnInit
+  OnInit,
+  Input,
+  SimpleChanges
 } from '@angular/core';
 import { IUser } from '../model/user.model';
+import { USER_DATA } from '../model/mocks';
 
 @Component({
   selector: 'app-users',
@@ -19,31 +22,32 @@ import { IUser } from '../model/user.model';
 
 export class UsersComponent implements OnInit,
   OnChanges, DoCheck, AfterContentInit, AfterContentChecked,
-  AfterViewInit, AfterViewChecked, OnDestroy{
+  AfterViewInit, AfterViewChecked, OnDestroy {
 
-  user: IUser = {
-    firstName: "Bill",
-    lastName: "Gates",
-    income: 50000,
-    isWorking: true,
-    company: "Microsoft Inc",
-    dob: new Date('Dec 12, 1965'),
-    image: "./assets/images/bill.jpg",
-    votes: 120
-  }
+  @Input() title: string;
+  user: IUser;
 
   moreInfo(user: IUser) {
     alert(`Here is the info,
     Mr. ${user.firstName} is working with ${user.company}!!`);
   }
 
-  ngOnInit() { console.log('ngOnInit'); }
-  ngOnChanges() { console.log('ngOnChanges'); }
-  ngDoCheck(){ console.log('ngDoCheck');}
-  ngAfterContentInit(){ console.log('ngAfterContentInit');}
-  ngAfterContentChecked(){ console.log('ngAfterContentChecked');}
-  ngAfterViewInit(){ console.log('ngAfterViewInit');}
-  ngAfterViewChecked(){ console.log('ngAfterViewChecked');}
-  ngOnDestroy(){ console.log('ngOnDestroy');}
+  constructor() {
+    console.log('constructor');
+    // this.user = USER_DATA;
+  }
+  ngOnInit() {
+    console.log('ngOnInit');
+    this.user = USER_DATA;
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('ngOnChanges', changes);
+  }
+  ngDoCheck() { console.log('ngDoCheck'); }
+  ngAfterContentInit() { console.log('ngAfterContentInit'); }
+  ngAfterContentChecked() { console.log('ngAfterContentChecked'); }
+  ngAfterViewInit() { console.log('ngAfterViewInit'); }
+  ngAfterViewChecked() { console.log('ngAfterViewChecked'); }
+  ngOnDestroy() { console.log('ngOnDestroy'); }
 
 }
