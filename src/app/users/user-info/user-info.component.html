@@ -4,8 +4,21 @@
 
 <ng-content></ng-content>
 
-<p>Income : <span [innerHTML]="user.income"></span></p>
-<p>Date of Birth : {{ user.dob }} </p>
+<p *ngIf="user.isWorking; else ElseTemplate">
+  Income : <span [innerHTML]="user.income"></span></p>
+
+  <!-- Desugar Syntax -->
+<!-- <ng-template [ngIf] = "user.isWorking">
+  <p>Income :  <span [innerHTML] = "user.income"></span></p>
+</ng-template> -->
+
+
+<!-- <p [ngClass] = "['border', 'feature']">Date of Birth : {{ user.dob }} </p> -->
+<p [ngClass] = "dynamicClass">Date of Birth : {{ user.dob }}
+
+  <button class="btn btn-sm btn-default" (click) = "onToggle()">Toggle</button>
+</p>
+
 <em>
   Total Votes : {{ user.votes }}
   <!-- <input type="number"
@@ -16,3 +29,14 @@
 </em>
 
 <ng-content select="footer"></ng-content>
+
+<ng-template #ElseTemplate>
+  <p>{{ user.firstName }} is NOT working now!</p>
+</ng-template>
+
+<!-- <div [ngSwitch] = "'2'">
+  <div *ngSwitchCase = "1">Output 1</div>
+  <div *ngSwitchCase = "2">Output 2</div>
+  <div *ngSwitchCase = "3">Output 3</div>
+  <div *ngSwitchDefault>Default Output</div>
+</div> -->

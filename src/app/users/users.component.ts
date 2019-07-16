@@ -25,7 +25,7 @@ export class UsersComponent implements OnInit,
   AfterViewInit, AfterViewChecked, OnDestroy {
 
   @Input() title: string;
-  user: IUser;
+  users: IUser[];
 
   moreInfo(user: IUser) {
     alert(`Here is the info,
@@ -38,7 +38,7 @@ export class UsersComponent implements OnInit,
   }
   ngOnInit() {
     console.log('ngOnInit');
-    this.user = USER_DATA;
+    this.users = USER_DATA;
   }
   ngOnChanges(changes: SimpleChanges) {
     console.log('ngOnChanges', changes);

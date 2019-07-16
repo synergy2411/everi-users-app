@@ -10,6 +10,13 @@ export class UserInfoComponent implements OnInit {
 
   @Input('user') user: IUser;
 
+  dynamicClass = { 'border': false, 'feature': true }
+
+  onToggle(){
+    this.dynamicClass.border = !this.dynamicClass.border;
+    this.dynamicClass.feature = !this.dynamicClass.feature;
+  }
+
   constructor() { }
 
   ngOnInit() {
