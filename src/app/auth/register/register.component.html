@@ -1,0 +1,49 @@
+<div class="container">
+  <h1 class="text-center text-primary"> Register Form</h1>
+
+  <form class="well" [formGroup]="registerForm">
+    <div class="form-group">
+      <label for="username"> Username : </label>
+      <input type="text" class="form-control" name="username" [formControl]="username">
+      <div [hidden]="username.untouched || username.valid">
+        <p class="text-danger">*Some problem with username.</p>
+        <div [hidden]="!username.hasError('required')">
+          <p>Username is required field.</p>
+        </div>
+        <div [hidden]="!username.hasError('minlength')">
+          <p>Username should have atleast 6 characters.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password"> Password : </label>
+      <input type="password" class="form-control" name="password" [formControl]="password">
+      <div [hidden] = "password.untouched || password.valid">
+        <p>Some problem with Password.</p>
+        <div [hidden] = "!password.hasError('required')">
+          <p>Password is required field.</p>
+        </div>
+        <div [hidden] = "!password.hasError('noExclamantion')">
+          <p>Password must have exclamation sign.</p>
+        </div>
+      </div>
+    </div>
+
+  <div class="form-group">
+    <label for="cnfPassword">Confirm Password : </label>
+    <input type="text" name="cnfPassword" class="form-control" [formControl] = "cnfPassword">
+
+    <div [hidden] = "cnfPassword.untouched || cnfPassword.valid">
+      Problem with confirm password.
+      <div [hidden] = "!cnfPassword.hasError('misMatchPassword')">
+        Password does not match.
+      </div>
+    </div>
+  </div>
+
+    <button class="btn btn-primary btn-block" (click)="onRegister()">
+      Register
+    </button>
+  </form>
+</div>
