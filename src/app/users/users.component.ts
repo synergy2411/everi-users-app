@@ -12,7 +12,7 @@ import {
   SimpleChanges
 } from '@angular/core';
 import { IUser } from '../model/user.model';
-import { USER_DATA } from '../model/mocks';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-users',
@@ -33,10 +33,23 @@ export class UsersComponent implements OnInit
     Mr. ${user.firstName} is working with ${user.company}!!`);
   }
 
-  constructor() { }
+  constructor(private dataService : DataService) { }
+
   ngOnInit() {
-    this.users = USER_DATA;
+    this.dataService.getJsonData()
+      .subscribe(response => this.users = response['userdata']);
+
+    // this.users = this.dataService.getData();
+    // this.users = USER_DATA;
   }
+
+
+
+
+
+
+
+
   // ngOnChanges(changes: SimpleChanges) {
   //   console.log('ngOnChanges', changes);
   // }
