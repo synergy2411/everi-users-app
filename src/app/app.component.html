@@ -1,15 +1,30 @@
-<h2>Hello There! </h2>
-<input type="text" [(ngModel)] = "title">
+<div class="container">
 
-<hr>
-<app-login></app-login>
-<app-register></app-register>
+  <div class="row">
+    <div class="col-md-10 col-sm-10 col-xs10">
+        <app-header></app-header>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs2" *ngIf="authService.isAuthenticated()">
+      <button class="btn btn-sm btn-block btn-danger">
+        Logout
+      </button>
+    </div>
+  </div>
+  <br>
+
+  <h2 class="text-center text-primary">My Awesome App</h2>
+  <hr>
+  <router-outlet></router-outlet>
+</div>
+
+<!-- <app-login></app-login>
+<app-register></app-register> -->
 
 <!-- <app-pipe-demo></app-pipe-demo> -->
 
-<hr>
+<!-- <hr> -->
 
-<div *ngIf="authService.isAuthenticated()">
+<!-- <div *ngIf="authService.isAuthenticated()">
   <app-users [title] = "title"></app-users>
 </div>
-
+ -->

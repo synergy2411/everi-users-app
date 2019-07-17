@@ -1,0 +1,17 @@
+<ul class="nav navbar-nav navbar-pills">
+  <li *ngIf="!authService.isAuthenticated()">
+    <a [routerLink]="['login']">Login</a>
+  </li>
+  <li *ngIf="!authService.isAuthenticated()">
+    <a [routerLink]="['register']">Register</a>
+  </li>
+  <li>
+    <a [routerLink]="['pipe']">Pipe Demo</a>
+  </li>
+  <li>
+    <a [routerLink]="['users']">Users</a>
+  </li>
+  <li>
+    <a [routerLink]="['product']">Product</a>
+  </li>
+</ul>

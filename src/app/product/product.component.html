@@ -1,0 +1,22 @@
+<div class="container">
+
+  <h2>Product Component</h2>
+
+  <br>
+
+  <div class="row">
+    <div class="col-md-2 col-sm-2 col-xs-2">
+      <ul class="list-unstyled">
+        <li><a [routerLink]="['overview', 3]">Overview</a></li>
+        <li><a [routerLink]="['spec']"
+            [queryParams] = "{'name' : 'iPhoneX'}">Specification</a></li>
+      </ul>
+    </div>
+    <div class="col-md-10 col-sm-10 col-xs-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+
+
+</div>

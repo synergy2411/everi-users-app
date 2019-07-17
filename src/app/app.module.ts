@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
@@ -15,6 +16,12 @@ import { CountryCodePipe } from './pipes/country-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { DataService } from './services/data.service';
 import { AuthService } from './services/auth.service';
+import { APP_ROUTES } from './app.routes';
+import { HeaderComponent } from './header/header.component';
+import { LoginGuardService } from './services/login-gaurd.service';
+import { ProductComponent } from './product/product.component';
+import { OverviewComponent } from './product/overview/overview.component';
+import { SpecificationComponent } from './product/specification/specification.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +34,18 @@ import { AuthService } from './services/auth.service';
     RegisterComponent,
     PipeDemoComponent,
     CountryCodePipe,
-    FilterPipe
+    FilterPipe,
+    HeaderComponent,
+    ProductComponent,
+    OverviewComponent,
+    SpecificationComponent
   ],
   imports: [
     BrowserModule, FormsModule,
-    ReactiveFormsModule, HttpClientModule
+    ReactiveFormsModule, HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [ DataService, AuthService],
+  providers: [ DataService, AuthService, LoginGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
