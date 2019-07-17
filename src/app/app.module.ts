@@ -9,6 +9,9 @@ import { UserInfoComponent } from './users/user-info/user-info.component';
 import { HighlightDirective } from './directives/highlight.directive';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { PipeDemoComponent } from './pipes/pipe-demo.component';
+import { CountryCodePipe } from './pipes/country-code.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { RegisterComponent } from './auth/register/register.component';
     UserInfoComponent,
     HighlightDirective,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    PipeDemoComponent,
+    CountryCodePipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule
