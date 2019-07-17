@@ -36,8 +36,15 @@ export class UsersComponent implements OnInit
   constructor(private dataService : DataService) { }
 
   ngOnInit() {
-    this.dataService.getJsonData()
-      .subscribe(response => this.users = response['userdata']);
+
+    this.dataService.getAPIData()
+      .subscribe(response => this.users = <IUser[]> response)
+
+    // this.dataService.getJsonData()
+    //   .subscribe(
+    //     response => this.users = response['userdata'],
+    //     err => console.log(err),
+    //     () => console.log("COMPLETE"));
 
     // this.users = this.dataService.getData();
     // this.users = USER_DATA;
@@ -45,7 +52,7 @@ export class UsersComponent implements OnInit
 
 
 
-
+// npm i firebase --save
 
 
 

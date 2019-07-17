@@ -2,11 +2,14 @@
 <input type="text" [(ngModel)] = "title">
 
 <hr>
-<!-- <app-login></app-login> -->
-<!-- <app-register></app-register> -->
+<app-login></app-login>
+<app-register></app-register>
 
 <!-- <app-pipe-demo></app-pipe-demo> -->
 
 <hr>
 
-<app-users [title] = "title"></app-users>
+<div *ngIf="authService.isAuthenticated()">
+  <app-users [title] = "title"></app-users>
+</div>
+

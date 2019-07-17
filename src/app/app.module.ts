@@ -14,6 +14,7 @@ import { PipeDemoComponent } from './pipes/pipe-demo.component';
 import { CountryCodePipe } from './pipes/country-code.pipe';
 import { FilterPipe } from './pipes/filter.pipe';
 import { DataService } from './services/data.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { DataService } from './services/data.service';
     BrowserModule, FormsModule,
     ReactiveFormsModule, HttpClientModule
   ],
-  providers: [ DataService],
+  providers: [ DataService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

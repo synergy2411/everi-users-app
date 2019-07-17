@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -23,7 +24,8 @@ export class RegisterComponent {
   ])
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private authService : AuthService) {
     this.registerForm = this.fb.group({
       username: this.username,
       password: this.password,
@@ -46,6 +48,10 @@ export class RegisterComponent {
   onRegister() {
     console.log("Username : ", this.registerForm.value.username);
     console.log("Password : ", this.registerForm.value.password);
+    this.authService.register(
+      this.registerForm.value.username,
+      this.registerForm.value.password
+    )
   }
 
 }
