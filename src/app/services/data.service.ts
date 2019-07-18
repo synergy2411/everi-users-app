@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { USER_DATA } from '../model/mocks';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { AuthService } from './auth.service';
 
 
@@ -15,12 +15,16 @@ export class DataService{
   }
 
   getJsonData(){
-    return this.httpClient.get("assets/model/user-data.json");
+    return this.httpClient.get("assets/model/user-data.json", {
+      headers : new HttpHeaders().set("Allow-Access-Control-Origin", "*")
+    });
       // .subscribe(response => console.log(response));
   }
 
   getAPIData(){
-    return this.httpClient.get("https://everi-app-demo.firebaseio.com/userdata.json?auth=" + this.authService.getToken())
+    return this.httpClient.get("https://everi-app-demo.firebaseio.com/userdata.json", {
+      params : new HttpParams().set("auth", this.authService.getToken())
+    })
   }
 
 }

@@ -12,6 +12,17 @@
   </div>
   <br>
 
+  Interpolation : {{ htmlSnippets }}
+  <br>
+  Binding : <span [innerHTML] = "htmlSnippets"></span>
+
+  <br>
+
+  Danger Url : <a [href]="dangerUrl">Danger URL </a> <br>
+  Safe Url : <a [href]="safeUrl">Safe URL</a>
+
+  <hr>
+
   <h2 class="text-center text-primary">My Awesome App</h2>
   <hr>
   <router-outlet></router-outlet>
