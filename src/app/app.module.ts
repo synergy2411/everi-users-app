@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { EmployeeModule } from './employee/employee.module';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
@@ -22,6 +23,7 @@ import { LoginGuardService } from './services/login-gaurd.service';
 import { ProductComponent } from './product/product.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecificationComponent } from './product/specification/specification.component';
+
 
 @NgModule({
   declarations: [
@@ -43,11 +45,11 @@ import { SpecificationComponent } from './product/specification/specification.co
   imports: [
     BrowserModule, FormsModule,
     ReactiveFormsModule, HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES), EmployeeModule
   ],
   providers: [ DataService, AuthService, LoginGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-
+// ng generate module <Module>

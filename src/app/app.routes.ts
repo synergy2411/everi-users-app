@@ -7,6 +7,7 @@ import { LoginGuardService } from './services/login-gaurd.service';
 import { ProductComponent } from './product/product.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecificationComponent } from './product/specification/specification.component';
+import { NewEmployeeComponent } from './employee/new-employee/new-employee.component';
 
 export const APP_ROUTES: Routes = [{
   path: '',
@@ -36,6 +37,12 @@ export const APP_ROUTES: Routes = [{
     component : SpecificationComponent
   }]
 }, {
+  path : 'employee',            //http://localhost:4200/employee
+  component : NewEmployeeComponent
+},{
+  path : 'lazy',
+  loadChildren : './lazy/lazy.module#LazyModule'     // path/to/your/file/Name_of_Module_file#ModuleClassName
+},{
   path: '**',                    // http://localhost:4200/xyz
   redirectTo: 'login',
   pathMatch: 'full'
